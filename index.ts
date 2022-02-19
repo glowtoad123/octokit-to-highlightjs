@@ -15,11 +15,11 @@ class oth {
         /**
          * the unrendered markdown (basically the markdown code before converting it to HTML)
          */
-        raw, 
+        raw: string, 
         /**
          * the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
          */
-        rendered) {
+        rendered: string) {
 
         this.raw = raw
         this.rendered = rendered
