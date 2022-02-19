@@ -5,6 +5,11 @@ const hljs = require('highlight.js');
  */
 class oth {
     
+    #raw
+    #rendered
+    listOfCode
+    #codeIndex
+    listOfLanguages
 
     constructor(
         /**
