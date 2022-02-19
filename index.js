@@ -5,8 +5,8 @@ const hljs = require('highlight.js');
  */
 class oth {
     
-    #raw
-    #rendered
+    raw
+    rendered
     listOfCode
     #codeIndex
     listOfLanguages
@@ -21,8 +21,8 @@ class oth {
          */
         rendered) {
 
-        this.#raw = raw
-        this.#rendered = rendered
+        this.raw = raw
+        this.rendered = rendered
         /**
          * List of the code that was found when running 
         */
