@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/glowtoad123/octokit-to-highlightjs/issues"
   },
-  "homepage": "https://github.com/glowtoad123/octokit-to-highlightjs#readme"
+  "homepage": "https://github.com/glowtoad123/octokit-to-highlightjs#readme",
+  "dependencies": {
+    "highlight.js": "^11.4.0"
+  }
 }
