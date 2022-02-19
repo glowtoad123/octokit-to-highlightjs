@@ -1,6 +1,6 @@
 {
   "name": "octokit-to-highlightjs",
-  "version": "1.0.0.1",
+  "version": "1.0.1",
   "description": "if you are using github's markdown renderer and want to use highlightjs themes, use this to convert github's/octokit's syntax highlighting method with highlightjs's syntax highlighting method",
   "main": "index.js",
   "scripts": {
@@ -24,8 +24,5 @@
   "bugs": {
     "url": "https://github.com/glowtoad123/octokit-to-highlightjs/issues"
   },
-  "homepage": "https://github.com/glowtoad123/octokit-to-highlightjs#readme",
-  "dependencies": {
-    "highlight.js": "^11.4.0"
-  }
+  "homepage": "https://github.com/glowtoad123/octokit-to-highlightjs#readme"
 }
