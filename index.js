@@ -53,9 +53,9 @@ class oth {
 
         if(hljsClassAdder.includes('class="pl-')){
             hljsClassAdder = hljsClassAdder.split("pre>")
-            while(this.codeIndex <= this.listOfCode.length){
-                hljsClassAdder[this.codeIndex + tracker] = this.listOfCode[this.codeIndex]
-                this.codeIndex += 1
+            while(this.#codeIndex <= this.listOfCode.length){
+                hljsClassAdder[this.#codeIndex + tracker] = this.listOfCode[this.#codeIndex]
+                this.#codeIndex += 1
                 tracker += 1
             }
             hljsClassAdder = hljsClassAdder.join("pre>").replaceAll("\npre>", "").replaceAll('>pre>', '>')
