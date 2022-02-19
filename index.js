@@ -1,4 +1,4 @@
-import hljs from 'highlight.js';
+const hljs = require('highlight.js');
 
 /**
  * a class that takes the raw markdown and the rendered markdown and highlights the code using highlightjs
