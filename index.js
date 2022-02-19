@@ -115,4 +115,4 @@ class oth {
     }
 }
 
-module.exports = new oth
+module.exports = oth
