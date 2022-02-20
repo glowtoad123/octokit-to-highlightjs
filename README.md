@@ -7,6 +7,10 @@ You must have NodeJS version >= 15 in order to use this.
 Here's an example of how you use it
 
 ```typescript
+// importing
+var oth = require("octokit-to-highlightjs")
+
+
 // raw is the markdown code and is a string in case you are wondering
 let octokitRendered: string = await (await octokit.rest.markdown.render({text: file, mode: "gfm"})).data
     let toHighlight: any = new oth(raw, octokitRendered)
