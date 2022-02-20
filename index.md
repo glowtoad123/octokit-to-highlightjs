@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+## octokit-to-highlightjs
 
-You can use the [editor on GitHub](https://github.com/glowtoad123/octokit-to-highlightjs/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+if you are using github's markdown renderer and want to use highlightjs themes, use this to convert github's/octokit's syntax highlighting method with highlightjs's syntax highlighting method
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You must have NodeJS version >= 15 in order to use this.
 
-### Markdown
+Here's an example of how you use it
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```typescript
+// importing
+var oth = require("octokit-to-highlightjs")
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+// raw is the markdown code and is a string in case you are wondering
+let octokitRendered: string = await (await octokit.rest.markdown.render({text: file, mode: "gfm"})).data
+    let toHighlight: any = new oth(raw, octokitRendered)
+    let highlightedVersion = toHighlight.replaceWithHighlighted()
 ```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/glowtoad123/octokit-to-highlightjs/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
