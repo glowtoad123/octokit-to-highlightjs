@@ -2,8 +2,6 @@
 
 if you are using github's markdown renderer and want to use highlightjs themes, use this to convert github's/octokit's syntax highlighting method with highlightjs's syntax highlighting method
 
-You must have NodeJS version >= 15 in order to use this.
-
 Here's an example of how you use it
 
 ```typescript
