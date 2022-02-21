@@ -7,6 +7,9 @@ declare class oth {
     listOfLanguages: any;
     /**
       * oth is a class that takes the raw markdown and the rendered markdown and highlights the code using highlightjs
+      *
+      * @param {string} raw - the unrendered markdown (basically the markdown code before converting it to HTML)
+      * @param {string} rendered - the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
     */
     constructor(
     /**
@@ -21,7 +24,7 @@ declare class oth {
      * Looks for code wrapped around ``` or ~~~. Keep in mind that if ``` is within ~~~ or vice versa, problems may occur.
      *
      *
-     * Can work whether or not you specificy the language after the opening \`\`\` string. If you do not specify the language or if the language you specify is not supported/not the name highlightjs calls it by (eg: zsh is not supported but bash is), it will run hljs.highlightAuto to determine the language. This is not always accurate
+     * Can work whether or not you specificy the language after the codeing \`\`\` string. If you do not specify the language or if the language you specify is not supported/not the name highlightjs calls it by (eg: zsh is not supported but bash is), it will run hljs.highlightAuto to determine the language. This is not always accurate
      *
      * once found, it replaces the github rendered code with highlightjs's rendered code
      *
