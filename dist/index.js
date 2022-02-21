@@ -81,7 +81,7 @@ _oth_raw = new WeakMap(), _oth_rendered = new WeakMap(), _oth_codeIndex = new We
     let markdownCodeCounter = 0;
     while (openEnd <= theRawMarkdown.length) {
         let open = theRawMarkdown.slice(openStart, openEnd);
-        if (open === '```' && markdownLocatorscounter % 2 === 0) {
+        if ((open === '```' || open === '~~~') && markdownLocatorscounter % 2 === 0) {
             markdown[markdownLocatorscounter] = openEnd;
             markdownLocatorscounter += 1;
             openStart += 1;
