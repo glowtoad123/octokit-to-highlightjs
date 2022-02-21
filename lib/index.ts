@@ -39,7 +39,7 @@ class oth {
     }
 
     /**
-     * Looks for code wrapped around ```.
+     * Looks for code wrapped around ``` or ~~~. Keep in mind that if ``` is within ~~~ or vice versa, problems may occur.
      * 
      * 
      * Can work whether or not you specificy the language after the opening \`\`\` string. If you do not specify the language or if the language you specify is not supported/not the name highlightjs calls it by (eg: zsh is not supported but bash is), it will run hljs.highlightAuto to determine the language. This is not always accurate
@@ -83,7 +83,7 @@ class oth {
                 markdownLocatorscounter += 1
                 openStart += 1
                 openEnd += 1
-            } else if(open === '```' && markdownLocatorscounter % 2 === 1){
+            } else if((open === '```' || open === '~~~') && markdownLocatorscounter % 2 === 1){
                 markdown[markdownLocatorscounter] = openStart
                 markdownLocatorscounter += 1
                 openStart += 1
