@@ -10,7 +10,7 @@ var oth = require("octokit-to-highlightjs")
 
 
 // raw is the markdown code and is a string in case you are wondering
-let octokitRendered: string = await (await octokit.rest.markdown.render({text: file, mode: "gfm"})).data
+let octokitRendered: string = await (await octokit.rest.markdown.render({text: file, mode: "markdown"})).data
     let toHighlight: any = new oth(raw, octokitRendered)
     let highlightedVersion = toHighlight.replaceWithHighlighted()
 ```
