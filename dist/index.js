@@ -57,6 +57,10 @@ class oth {
      *
      * Then it looks for the \<pre\> tags and adds the 'hljs' class to it
      *
+     * Keep in mind that if you have "\<pre\>" in a sentence, it will mess everything up. If you want to have \<pre\> in a sentence, please use the optimizer function to replace all occurrences of \<pre\> with \\<pre\\>
+     *
+     * You can import the optimizer function by including  `import optimizer from "octokit-to-highlightjs/dist/optimizer"` or `var optimizer = require("octokit-to-highlightjs/dist/optimizer")` at the top of your code. Then use it like this: `raw = optimizer(raw)`. Then render it with octokit and finally, use `replaceWithHighlighted()`
+     *
     */
     replaceWithHighlighted() {
         __classPrivateFieldGet(this, _oth_instances, "m", _oth_findAndHighlight).call(this);
@@ -114,6 +118,7 @@ _oth_raw = new WeakMap(), _oth_rendered = new WeakMap(), _oth_codeIndex = new We
             let newLineLocation = excess.indexOf("\n");
             let codeLanguage = excess.slice(0, newLineLocation).trim();
             let desiredHTML = theRawMarkdown.slice(markdown[0], markdown[1]).replace(codeLanguage, "");
+            desiredHTML = desiredHTML.split("\\<pre\\>").join("<pre>");
             let highLightedHTML = "";
             if (this.listOfLanguages[codeLanguage] === true) {
                 highLightedHTML = hljs.highlight(codeLanguage, desiredHTML).value;

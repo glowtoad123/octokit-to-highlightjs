@@ -26,7 +26,6 @@ class oth {
          * the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
          */
         rendered: string) {
-
         this.#raw = raw
         this.#rendered = rendered
         /**
@@ -50,6 +49,10 @@ class oth {
      * once found, it replaces the github rendered code with highlightjs's rendered code
      * 
      * Then it looks for the \<pre\> tags and adds the 'hljs' class to it
+     * 
+     * Keep in mind that if you have "\<pre\>" in a sentence, it will mess everything up. If you want to have \<pre\> in a sentence, please use the optimizer function to replace all occurrences of \<pre\> with \\<pre\\>
+     * 
+     * You can import the optimizer function by including  `import optimizer from "octokit-to-highlightjs/dist/optimizer"` or `var optimizer = require("octokit-to-highlightjs/dist/optimizer")` at the top of your code. Then use it like this: `raw = optimizer(raw)`. Then render it with octokit and finally, use `replaceWithHighlighted()`
      *
     */
     replaceWithHighlighted() {
@@ -79,8 +82,12 @@ class oth {
         return theRenderedMarkdown
     }
 
+    /**
+     * this is the function that actually Looks for code wrapped around ``` or ~~~ in the raw markdown and highlights it. 
+     * Before it does that, it looks for the code "pre>" and replaces it with "pre >" so that the fuction "replaceWithHighlighted" does not mess it up when replacing the code with highlightjs's rendered code
+     */
     #findAndHighlight() {
-        var theRawMarkdown = this.#raw
+        var theRawMarkdown: string | string[] = this.#raw
         let codeStart = 0
         let codeEnd = 3
         let markdown = {}
@@ -108,7 +115,8 @@ class oth {
                 let excess = theRawMarkdown.slice(markdown[0], lastIndex)
                 let newLineLocation = excess.indexOf("\n")
                 let codeLanguage = excess.slice(0, newLineLocation).trim()
-                let desiredHTML = theRawMarkdown.slice(markdown[0], markdown[1]).replace(codeLanguage, "")
+                let desiredHTML: string | string[] = theRawMarkdown.slice(markdown[0], markdown[1]).replace(codeLanguage, "")
+                desiredHTML = desiredHTML.split("\\<pre\\>").join("<pre>")
                 
                 
                 let highLightedHTML = ""
@@ -128,7 +136,4 @@ class oth {
     }
 }
 
-/**
- * a class that takes the raw markdown and the rendered markdown and highlights the code using highlightjs
-*/
 export = oth

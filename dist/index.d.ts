@@ -30,10 +30,11 @@ declare class oth {
      *
      * Then it looks for the \<pre\> tags and adds the 'hljs' class to it
      *
+     * Keep in mind that if you have "\<pre\>" in a sentence, it will mess everything up. If you want to have \<pre\> in a sentence, please use the optimizer function to replace all occurrences of \<pre\> with \\<pre\\>
+     *
+     * You can import the optimizer function by including  `import optimizer from "octokit-to-highlightjs/dist/optimizer"` or `var optimizer = require("octokit-to-highlightjs/dist/optimizer")` at the top of your code. Then use it like this: `raw = optimizer(raw)`. Then render it with octokit and finally, use `replaceWithHighlighted()`
+     *
     */
     replaceWithHighlighted(): string;
 }
-/**
- * a class that takes the raw markdown and the rendered markdown and highlights the code using highlightjs
-*/
 export = oth;
