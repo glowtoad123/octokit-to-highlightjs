@@ -1,5 +1,7 @@
 ## octokit-to-highlightjs
 
+[![](https://data.jsdelivr.com/v1/package/npm/octokit-to-highlightjs/badge)](https://www.jsdelivr.com/package/npm/octokit-to-highlightjs)
+
 if you are using github's markdown renderer and want to use highlightjs themes, use this to convert github's/octokit's syntax highlighting method with highlightjs's syntax highlighting method
 
 Here's an example of how you use it

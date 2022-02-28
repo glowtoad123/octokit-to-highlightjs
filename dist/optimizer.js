@@ -4,6 +4,6 @@
  * @param {string} raw - the unrendered markdown (basically the markdown code before converting it to HTML)
  */
 function optimizer(raw) {
-    return raw.split("<pre>").join("\\<pre\\>");
+    return raw.split("<pre>").join("\\<pre\\>").split("</pre>").join("\\</pre\\>");
 }
 module.exports = optimizer;
