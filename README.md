@@ -7,7 +7,7 @@ Here's an example of how you use it
 ```typescript
 // importing
 var oth = require("octokit-to-highlightjs")
-// only if your raw markdown uses `<pre>` in a sentence (e.g. If you typed something like: "the tag \<pre\> is used to...")
+// only if your raw markdown uses `<pre>` in a sentence (e.g. If you typed something like: "the tag <pre> is used to...")
 var optimizer = require("octokit-to-highlightjs/dist/optimizer")
 
 
