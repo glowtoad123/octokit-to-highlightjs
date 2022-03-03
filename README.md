@@ -22,5 +22,3 @@ let octokitRendered: string = await (await octokit.rest.markdown.render({text: r
     let toHighlight: any = new oth(raw, octokitRendered)
     let highlightedVersion = toHighlight.replaceWithHighlighted()
 ```
-
-Keep in mind that if ``` is within ~~~ or vice versa, problems may occur.

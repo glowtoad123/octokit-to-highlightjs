@@ -81,7 +81,6 @@ class oth {
         theRenderedMarkdown = theRenderedMarkdown.join("");
         theRenderedMarkdown = theRenderedMarkdown.split(">pre>");
         theRenderedMarkdown = theRenderedMarkdown.join(">");
-        console.log("tracker", tracker);
         theRenderedMarkdown = theRenderedMarkdown.split('<pre>').join('<pre class="hljs">');
         // for ES2021
         /* theRenderedMarkdown = theRenderedMarkdown.replaceAll('<pre>', '<pre class="hljs">') */
@@ -103,10 +102,16 @@ _oth_raw = new WeakMap(), _oth_rendered = new WeakMap(), _oth_codeIndex = new We
             codeEnd += 1;
         }
         else if ((code === '```' || code === '~~~') && markdownLocatorscounter % 2 === 1) {
-            markdown[markdownLocatorscounter] = codeStart;
-            markdownLocatorscounter += 1;
-            codeStart += 1;
-            codeEnd += 1;
+            if (theRawMarkdown[codeStart] === theRawMarkdown[markdown[0] - 1]) {
+                markdown[markdownLocatorscounter] = codeStart;
+                markdownLocatorscounter += 1;
+                codeStart += 1;
+                codeEnd += 1;
+            }
+            else {
+                codeStart += 1;
+                codeEnd += 1;
+            }
         }
         else {
             codeStart += 1;
