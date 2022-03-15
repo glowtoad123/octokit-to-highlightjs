@@ -11,15 +11,7 @@ declare class oth {
       * @param {string} raw - the unrendered markdown (basically the markdown code before converting it to HTML)
       * @param {string} rendered - the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
     */
-    constructor(
-    /**
-     * the unrendered markdown (basically the markdown code before converting it to HTML)
-     */
-    raw: string, 
-    /**
-     * the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
-     */
-    rendered: string);
+    constructor(raw: string, rendered: string);
     /**
      * Looks for code wrapped around ``` or ~~~.
      *

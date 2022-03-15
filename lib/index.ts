@@ -17,15 +17,7 @@ class oth {
       * @param {string} raw - the unrendered markdown (basically the markdown code before converting it to HTML)
       * @param {string} rendered - the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
     */
-    constructor(
-        /**
-         * the unrendered markdown (basically the markdown code before converting it to HTML)
-         */
-        raw: string, 
-        /**
-         * the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
-         */
-        rendered: string) {
+    constructor(raw: string, rendered: string) {
         this.#raw = raw
         this.#rendered = rendered
         /**
@@ -57,6 +49,9 @@ class oth {
     */
     replaceWithHighlighted() {
         this.#findAndHighlight()
+        if(this.listOfCode.length === 0){
+            throw Error("Either there is no code to highlight or the rendered markdown is not the raw markdown that was supposed to be rendered with octokit. If it is the former, then please make sure the parts you want to highlight is wrapped around ```.")
+        }
         var theRenderedMarkdown: string | string[] = this.#rendered
         let tracker = 1
 

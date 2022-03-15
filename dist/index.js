@@ -22,15 +22,7 @@ class oth {
       * @param {string} raw - the unrendered markdown (basically the markdown code before converting it to HTML)
       * @param {string} rendered - the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
     */
-    constructor(
-    /**
-     * the unrendered markdown (basically the markdown code before converting it to HTML)
-     */
-    raw, 
-    /**
-     * the rendered markdown (basically the markdown code converted to HTML by octokit or github's rest api)
-     */
-    rendered) {
+    constructor(raw, rendered) {
         _oth_instances.add(this);
         _oth_raw.set(this, void 0);
         _oth_rendered.set(this, void 0);
@@ -64,6 +56,9 @@ class oth {
     */
     replaceWithHighlighted() {
         __classPrivateFieldGet(this, _oth_instances, "m", _oth_findAndHighlight).call(this);
+        if (this.listOfCode.length === 0) {
+            throw Error("Either there is no code to highlight or the rendered markdown is not the raw markdown that was supposed to be rendered with octokit. If it is the former, then please make sure the parts you want to highlight is wrapped around ```.");
+        }
         var theRenderedMarkdown = __classPrivateFieldGet(this, _oth_rendered, "f");
         let tracker = 1;
         if (theRenderedMarkdown.includes('class="pl-')) {
