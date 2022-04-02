@@ -29,7 +29,7 @@
   },
   "homepage": "https://glowtoad123.github.io/octokit-to-highlightjs/",
   "dependencies": {
-    "highlight.js": "^11.4.0"
+    "highlight.js": "^11.5.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
